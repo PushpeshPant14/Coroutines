@@ -31,22 +31,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
 
-        GlobalScope.launch {
-            delay(3000L)
-            Log.d(Tag,"Coroutine says hello from thread ${Thread.currentThread().name}")
-            val networkCallAnswer1 = doNetworkCall1()
-            val networkCallAnswer2 = doNetworkCall2()
-            Log.d(Tag,networkCallAnswer1)
-            Log.d(Tag,networkCallAnswer2)
-        }
-
-//        context Switching
-        GlobalScope.launch(Dispatchers.IO) {
-            val answer = doNetworkCall1()
-            withContext(Dispatchers.Main){
-                Log.d(Tag,"Setting text in thread ${Thread.currentThread().name}")
-            }
-        }
+//        GlobalScope.launch {
+//            delay(3000L)
+//            Log.d(Tag,"Coroutine says hello from thread ${Thread.currentThread().name}")
+//            val networkCallAnswer1 = doNetworkCall1()
+//            val networkCallAnswer2 = doNetworkCall2()
+//            Log.d(Tag,networkCallAnswer1)
+//            Log.d(Tag,networkCallAnswer2)
+//        }
+//
+        //context Switching
+//        GlobalScope.launch(Dispatchers.IO) {
+//            val answer = doNetworkCall1()
+//            withContext(Dispatchers.Main){
+//                Log.d(Tag,"Setting text in thread ${Thread.currentThread().name}")
+//            }
+//        }
 
 
         Log.d(Tag,"hello from thread ${Thread.currentThread().name}") //main thread
